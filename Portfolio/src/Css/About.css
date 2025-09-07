@@ -1,0 +1,20 @@
+main span {
+    color: aqua;
+}
+
+.about-main {
+    margin-top: 200px;
+}
+
+
+.about-head {
+    text-align: center;
+}
+
+.about-photo {
+    margin-left: 90px;
+    background-color: #00EEFF;
+    max-width: 363px;
+    max-height: 355px;
+}
+

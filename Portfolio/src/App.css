@@ -2,10 +2,12 @@
 body {
   margin: 0;
   scroll-behavior: smooth;
-  height: 100vh;
-  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  background-color: #0d1117;
+  color: white;
 }
 
+/* Background Blur */
 .background {
   position: fixed;
   top: 0;
@@ -14,153 +16,181 @@ body {
   height: 100%;
   background: url("./assets/background.png") no-repeat center center;
   background-size: cover;
-  filter: brightness(70%) blur(1px);
+  filter: brightness(70%) blur(2px);
   z-index: -1;
 }
 
+/* Logo */
 .logo {
-  margin-left: 50px;
+  margin-left: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
 }
 
+/* Navbar */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  padding: 10px 50px;
+  padding: 15px 60px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 
 .services a {
-  font-size: 20px;
-  margin: 15px;
+  font-size: 18px;
+  margin: 0 15px;
   text-decoration: none;
   color: aliceblue;
-  font-weight: 600;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.services a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #00eeff;
+  transition: width 0.3s ease;
+}
+.services a:hover {
+  color: #00eeff;
+}
+.services a:hover::after {
+  width: 100%;
 }
 
-.services {
-  margin-right: 50px;
-}
-
-.intro {
-  width: 80%;
-  max-width: 600px;
-  margin: auto;
-  margin-top: 50px;
-  text-align: center;
-  color: white;
-  font-size: larger;
-}
-
-.intro span {
-  font-size: larger;
-  color: #00EEFF;
-}
-
-.info {
+/* 🔹 Intro + Info Wrapper */
+.intro-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin: 20px 100px;
-  flex-wrap: wrap;
-  padding: 100px 100px;
+  gap: 50px;
+  margin: 70px 100px;
+  flex-wrap: wrap; /* Mobile ke liye */
 }
 
+/* Intro Section */
+.intro {
+  flex: 1;
+  max-width: 600px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.intro span {
+  font-weight: 600;
+  color: #00eeff;
+}
+
+/* Info Section (Image) */
+.info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .info img {
-  max-width: 500px;
-  max-height: 600px;
+  max-width: 400px;
+  border-radius: 20px;
   object-fit: cover;
+  box-shadow: 0px 8px 25px rgba(0, 238, 255, 0.3);
+  transition: transform 0.4s ease;
+}
+.info img:hover {
+  transform: scale(1.05);
 }
 
+/* Social Links */
 .links {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   margin-top: 20px;
-  margin-left: 200px;
+  justify-content: center;
 }
-
 .links svg {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   fill: cyan;
-  transition: transform 0.3s ease;
   border: 1px solid cyan;
-  border-radius: 20px;
+  border-radius: 50%;
+  padding: 8px;
+  background: rgba(0, 238, 255, 0.1);
+  transition: all 0.3s ease;
 }
-
 .links svg:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  background: cyan;
+  fill: black;
   cursor: pointer;
 }
 
+/* CV & Portfolio Buttons */
 .cv-port {
   display: flex;
-  gap: 70px;
-  margin-left: 110px;
-  margin-top: 20px;
+  gap: 30px;
+  margin-top: 30px;
+  justify-content: center;
 }
-
 .cv-port h1 {
-  border: 10px cyan;
-  border-radius: 15px;
-  background-color: #00EEFF;
+  border-radius: 12px;
+  background-color: #00eeff;
   font-size: 16px;
-  padding: 15px 20px;
+  padding: 12px 25px;
   color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(0, 238, 255, 0.3);
+}
+.cv-port h1:hover {
+  background-color: black;
+  color: cyan;
+  transform: translateY(-3px);
 }
 
-
-/* --- Responsive Media Query for Android / Mobile Devices --- */
+/* --- Responsive (Mobile / Tablets) --- */
 @media (max-width: 768px) {
-  body {
-    height: auto;
-    width: 100%;
-    overflow-x: hidden;
-  }
-
   header {
     flex-direction: column;
-    padding: 10px 20px;
+    padding: 12px 20px;
   }
 
   .services {
-    margin-right: 0;
-    margin-top: 10px;
+    margin-top: 12px;
+  }
+
+  .intro-section {
+    flex-direction: column;
+    margin: 40px 20px;
+    text-align: center;
   }
 
   .intro {
-    width: 90%;
-    font-size: medium;
-    margin-top: 30px;
-  }
-
-  .info {
-    flex-direction: column;
-    margin: 20px;
-    padding: 50px 20px;
+    width: 100%;
+    font-size: 1rem;
   }
 
   .info img {
-    max-width: 90%;
-    max-height: auto;
-    margin-bottom: 20px;
-  }
-
-  .links {
-    margin-left: 0;
-    justify-content: center;
+    max-width: 85%;
+    margin-top: 20px;
   }
 
   .cv-port {
     flex-direction: column;
-    gap: 20px;
-    margin-left: 0;
-    align-items: center;
+    gap: 15px;
   }
 
   .cv-port h1 {
     font-size: 14px;
-    padding: 10px 15px;
+    padding: 10px 20px;
   }
 }
