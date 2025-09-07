@@ -1,13 +1,11 @@
-/* Make body fit the viewport */
+/* --- Base Styles (Desktop / Large Screens) --- */
 body {
   margin: 0;
   scroll-behavior: smooth;
-   /* Prevent scrolling */
   height: 100vh;
   width: 100vw;
 }
 
-/* Background stays fixed and covers the entire screen */
 .background {
   position: fixed;
   top: 0;
@@ -20,26 +18,10 @@ body {
   z-index: -1;
 }
 
-/* Main content is relative and constrained inside the viewport */
-/* .main-content {
-  position: relative;
-  z-index: 1;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-} */
-
-/* Logo aligned nicely */
 .logo {
   margin-left: 50px;
 }
 
-
-
-/* Header stays sticky and well spaced */
 header {
   display: flex;
   justify-content: space-between;
@@ -47,10 +29,8 @@ header {
   position: sticky;
   top: 0;
   padding: 10px 50px;
-
 }
 
-/* Services links styling */
 .services a {
   font-size: 20px;
   margin: 15px;
@@ -63,11 +43,9 @@ header {
   margin-right: 50px;
 }
 
-/* Intro section nicely centered and constrained */
 .intro {
   width: 80%;
   max-width: 600px;
-  height: auto;
   margin: auto;
   margin-top: 50px;
   text-align: center;
@@ -80,7 +58,6 @@ header {
   color: #00EEFF;
 }
 
-/* Info section in a flex container */
 .info {
   display: flex;
   justify-content: space-around;
@@ -88,8 +65,6 @@ header {
   margin: 20px 100px;
   flex-wrap: wrap;
   padding: 100px 100px;
- 
- 
 }
 
 .info img {
@@ -100,30 +75,30 @@ header {
 
 .links {
   display: flex;
-  gap: 15px; /* Better spacing between icons */
+  gap: 15px;
   margin-top: 20px;
   margin-left: 200px;
 }
 
 .links svg {
-  width: 40px;    /* Set a consistent width */
-  height: 40px;   /* Set a consistent height */
-  fill: cyan;    /* Optional: Set icon color */
+  width: 40px;
+  height: 40px;
+  fill: cyan;
   transition: transform 0.3s ease;
- 
+  border: 1px solid cyan;
+  border-radius: 20px;
 }
 
 .links svg:hover {
-  transform: scale(1.1); /* Slight hover zoom effect */
+  transform: scale(1.1);
   cursor: pointer;
 }
 
-.cv-port{
+.cv-port {
   display: flex;
-  gap:70px;
+  gap: 70px;
   margin-left: 110px;
   margin-top: 20px;
-
 }
 
 .cv-port h1 {
@@ -133,4 +108,59 @@ header {
   font-size: 16px;
   padding: 15px 20px;
   color: black;
+}
+
+
+/* --- Responsive Media Query for Android / Mobile Devices --- */
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  header {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  .services {
+    margin-right: 0;
+    margin-top: 10px;
+  }
+
+  .intro {
+    width: 90%;
+    font-size: medium;
+    margin-top: 30px;
+  }
+
+  .info {
+    flex-direction: column;
+    margin: 20px;
+    padding: 50px 20px;
+  }
+
+  .info img {
+    max-width: 90%;
+    max-height: auto;
+    margin-bottom: 20px;
+  }
+
+  .links {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .cv-port {
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .cv-port h1 {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
 }
