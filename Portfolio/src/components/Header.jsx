@@ -5,7 +5,7 @@ export default function Header() {
     <header>
       <div className="logo">
         <img src={logo} alt="" />
-        <h1>Name</h1>
+        
       </div>
       <div className="services">
         <a href="#">Home</a>

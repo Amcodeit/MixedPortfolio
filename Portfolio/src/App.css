@@ -1,7 +1,13 @@
+/* Make body fit the viewport */
 body {
   margin: 0;
+  scroll-behavior: smooth;
+   /* Prevent scrolling */
+  height: 100vh;
+  width: 100vw;
 }
 
+/* Background stays fixed and covers the entire screen */
 .background {
   position: fixed;
   top: 0;
@@ -10,44 +16,61 @@ body {
   height: 100%;
   background: url("./assets/background.png") no-repeat center center;
   background-size: cover;
-  filter: brightness(70%) blur(1px); /* Add any filter you want */
-  z-index: -1; /* Ensure background stays behind the content */
+  filter: brightness(70%) blur(1px);
+  z-index: -1;
 }
 
-.main-content {
+/* Main content is relative and constrained inside the viewport */
+/* .main-content {
   position: relative;
-  z-index: 1; /* Keep the content above the background */
-}
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+} */
 
+/* Logo aligned nicely */
 .logo {
-  display:flex;
-align-items: center;
-margin-left: 100px;
+  margin-left: 50px;
 }
 
+
+
+/* Header stays sticky and well spaced */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 10px 50px;
+
 }
 
-.services a{
-font-size:20px;
-margin: 15px;
-text-decoration: none;
-color: aliceblue;
-font-weight: 600;
+/* Services links styling */
+.services a {
+  font-size: 20px;
+  margin: 15px;
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: 600;
 }
 
 .services {
-margin-right: 100px;
+  margin-right: 50px;
 }
 
+/* Intro section nicely centered and constrained */
 .intro {
-  width:600px;
-  height:600px;
- 
-  margin-top:150px;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
   color: white;
   font-size: larger;
 }
@@ -57,9 +80,57 @@ margin-right: 100px;
   color: #00EEFF;
 }
 
+/* Info section in a flex container */
 .info {
   display: flex;
-  justify-content: space-between;
-  margin: 100px;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 100px;
+  flex-wrap: wrap;
+  padding: 100px 100px;
+ 
+ 
 }
 
+.info img {
+  max-width: 500px;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.links {
+  display: flex;
+  gap: 15px; /* Better spacing between icons */
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+.links svg {
+  width: 40px;    /* Set a consistent width */
+  height: 40px;   /* Set a consistent height */
+  fill: cyan;    /* Optional: Set icon color */
+  transition: transform 0.3s ease;
+ 
+}
+
+.links svg:hover {
+  transform: scale(1.1); /* Slight hover zoom effect */
+  cursor: pointer;
+}
+
+.cv-port{
+  display: flex;
+  gap:70px;
+  margin-left: 110px;
+  margin-top: 20px;
+
+}
+
+.cv-port h1 {
+  border: 10px cyan;
+  border-radius: 15px;
+  background-color: #00EEFF;
+  font-size: 16px;
+  padding: 15px 20px;
+  color: black;
+}
