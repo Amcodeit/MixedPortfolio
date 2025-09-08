@@ -8,6 +8,7 @@ import "./Css/About.css"
 import "./Css/Skills.css"
 import "./Css/Services.css"
 import About from "./components/About";
+import Skills from "./components/Skills";
 
 
 export default function App() {
@@ -18,7 +19,10 @@ export default function App() {
       <div className="main-content">
         <Header />
        <Intro />
+       <hr />
         <About />
+        <hr />
+        <Skills />
         
       </div>
     </div>
